@@ -63,7 +63,7 @@ class filecheck():
                     compliant.append(device_info)
             else:
                 skipped_devices += 1
-            # gets the interface info as needed by
+            # gets the interface info as needed by looking for the interface instance
             for interface in device.findall("interface"):
                 status = interface.get("status")
                 # The actual if statement to count
@@ -87,7 +87,7 @@ class filecheck():
         # actually puts the data into the file
         with open("audit.json", "w") as file:
             json.dump(dump_data, file, indent=2)
-        # had to actually return something during testing. I don't even know what I still kept it in
+        # had to actually return something during testing. I don't even know why I still kept it in
         return violations, compliant, total_devices, skipped_devices, interfaces
 
 # The actual code for main
@@ -108,5 +108,5 @@ def main():
     print("wait, it actually worked?")
     sys.exit(0)
 
-# my attempt at running main. Don't ask
+# my attempt at running main. Don't ask why
 main()
