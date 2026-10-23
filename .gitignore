@@ -1,2 +1,3 @@
 *.log
 secrets.env
+audit.json
